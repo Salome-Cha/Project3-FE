@@ -1,6 +1,7 @@
 import React from 'react';
 import ProjectsService from '../utils/api';
 import { withRouter } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 class AddProject extends React.Component {
@@ -20,6 +21,7 @@ class AddProject extends React.Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     const projectsService = new ProjectsService();
+    toast.success('Project created');
     projectsService.addProject(this.state).then(() => {
        
         this.props.history.push('/projects');
